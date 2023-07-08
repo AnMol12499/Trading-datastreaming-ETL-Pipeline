@@ -1,0 +1,33 @@
+version: "3.6"
+
+services:
+
+  kafka:
+    build:
+      context: ./kafka
+      dockerfile: Dockerfile
+    container_name: kafka
+
+  spark-k8s:
+    build:
+      context: ./StreamProcessor
+      dockerfile: Dockerfile
+    container_name: spark-k8s
+
+  cassandra:
+    build:
+      context: ./cassandra
+      dockerfile: Dockerfile
+    container_name: cassandra
+
+  finnhubproducer:
+    build:
+      context: ./FinnhubProducer
+      dockerfile: Dockerfile
+    container_name: FinnhubProducer
+  
+  grafana:
+    build:
+      context: ./grafana
+      dockerfile: Dockerfile
+    container_name: grafana
